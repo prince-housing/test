@@ -5,21 +5,44 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
+  withTiming,
+  withRepeat,
+  Easing,
+  withSequence,
 } from 'react-native-reanimated';
 
 import styles from './styles';
 
 function Box() {
-  const offset = useSharedValue(0);
-
+  const offset = useSharedValue(0.1);
+  const rotation = useSharedValue(0);
   const animatedStyles = useAnimatedStyle(() => {
     return {
-      transform: [{ translateX: offset.value * 255 }],
+      transform: [
+        { translateX: offset.value * 255 },
+        { scale: offset.value * 1 },
+        { rotateZ: `${rotation.value}deg` },
+      ],
     };
   });
 
   const handleButtonPress = () => {
-    offset.value = withSpring(Math.random());
+    // offset.value = withSpring(
+    //   Math.random(),
+    //   {
+    //     damping: 20,
+    //     stiffness: 90,
+    //   },
+    // );
+    offset.value = withTiming(Math.random(), {
+      duration: 500,
+      easing: Easing.out(Easing.exp),
+    });
+    rotation.value = withSequence(
+      withTiming(-10, { duration: 50 }),
+      withRepeat(withTiming(10, { duration: 100 }), 6, true),
+      withTiming(0, { duration: 50 }),
+    );
   };
 
   return (

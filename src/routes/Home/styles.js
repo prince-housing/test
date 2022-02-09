@@ -10,6 +10,7 @@ export default StyleSheet.create({
   box: {
     width: 50,
     height: 50,
+    borderRadius: 5,
     backgroundColor: Colors.Generic.accentBlue,
     margin: Spacing.size_16,
   },
