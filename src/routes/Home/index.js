@@ -7,7 +7,10 @@ import HomeScreen from './Home';
 const mapStateToProps = null;
 const mapDispatchToProps = dispatch => {
   return {
-    handleTextPress: () => NavigationActions.navigate(routeNames.DeviceInfo),
+    handleDeviceInfoNavigate: () =>
+      NavigationActions.navigate(routeNames.DeviceInfo),
+    handleSliderExampleNavigate: () =>
+      NavigationActions.navigate(routeNames.SliderExample),
   };
 };
 

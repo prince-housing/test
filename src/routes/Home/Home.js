@@ -54,11 +54,14 @@ function Box() {
 }
 
 const Home = props => {
-  const { handleTextPress } = props;
+  const { handleDeviceInfoNavigate, handleSliderExampleNavigate } = props;
   return (
     <View style={styles.container}>
       <Text>This is home screen</Text>
-      <Text onPress={handleTextPress}>Navigate to Device-info</Text>
+      <Text onPress={handleDeviceInfoNavigate}>Navigate to Device-info</Text>
+      <Text onPress={handleSliderExampleNavigate}>
+        Navigate to Slider-example
+      </Text>
       <Box />
     </View>
   );
