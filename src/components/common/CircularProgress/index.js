@@ -34,7 +34,7 @@ const CircularProgress = props => {
   const HALF_WIDTH = CIRCLE_RADIUS + STROKE_WIDTH;
 
   const animatedInputProps = useAnimatedProps(() => {
-    const clampValue = clamp(progress.value / total.value, 0, 1);
+    const clampValue = clamp((progress.value || 0) / (total.value || 0), 0, 1);
     return {
       text: `${Math.round(clampValue * 100)}`,
       color: interpolateColor(
@@ -46,10 +46,10 @@ const CircularProgress = props => {
   });
 
   const animatedCircleProps = useAnimatedProps(() => {
-    const clampValue = clamp(progress.value / total.value, 0, 1);
+    const clampValue = clamp((progress.value || 0) / (total.value || 0), 0, 1);
     return {
-      strokeDashoffset: (1 - clampValue) * CIRCUMFERENCE,
-      fillOpacity: interpolate(clampValue, [0, 1], [0.3, 0.8]),
+      strokeDashoffset: (1 - (clampValue || 0)) * CIRCUMFERENCE,
+      fillOpacity: interpolate(clampValue || 0, [0, 1], [0.3, 0.8]),
     };
   });
 
