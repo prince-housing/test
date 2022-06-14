@@ -4,12 +4,13 @@ import { Text, View, Button } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
-  withSpring,
   withTiming,
   withRepeat,
   Easing,
   withSequence,
 } from 'react-native-reanimated';
+
+import GiftCard from '../../components/GiftCard';
 
 import styles from './styles';
 
@@ -57,12 +58,13 @@ const Home = props => {
   const { handleDeviceInfoNavigate, handleSliderExampleNavigate } = props;
   return (
     <View style={styles.container}>
+      <Box />
       <Text>This is home screen</Text>
       <Text onPress={handleDeviceInfoNavigate}>Navigate to Device-info</Text>
       <Text onPress={handleSliderExampleNavigate}>
         Navigate to Slider-example
       </Text>
-      <Box />
+      <GiftCard delay={300} containerStyle={styles.giftCardContainer} />
     </View>
   );
 };

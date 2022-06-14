@@ -19,6 +19,9 @@ const Generic = {
   shadow: '#7F929F',
   shadowBorder: '#E4E8EA',
   white: '#FFFFFF',
+  white60: 'rgba(255, 255, 255, 0.6)',
+  grey_111_1: 'rgba(111, 111, 111, 0.6)',
+  grey_82_1: 'rgba(82, 82, 82, 0.6)',
 };
 
 const Text = {

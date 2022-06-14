@@ -4,8 +4,13 @@ import { Colors, Layouts, Spacing } from '../../styles';
 
 export default StyleSheet.create({
   animatedBox: {
-    ...Layouts.container,
-    marginTop: Spacing.size_16,
+    height: 200,
+    width: '100%',
+    marginVertical: Spacing.size_16,
+    justifyContent: 'flex-end',
+  },
+  giftCardContainer: {
+    marginVertical: Spacing.size_16,
   },
   box: {
     width: 50,
